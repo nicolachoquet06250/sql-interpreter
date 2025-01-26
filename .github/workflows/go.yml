@@ -14,10 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: 'actions/checkout@v4'
 
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: 'actions/setup-go@v4'
       with:
         go-version: '1.23'
 
@@ -26,3 +26,15 @@ jobs:
 
     - name: Build for linux
       run: GOOS=linux go build -o ./dist/sql-interpreter .
+
+    - name: Upload windows executable
+      uses: 'actions/upload-artifact@v3'
+      with:
+        name: sql-interpreter.exe
+        path: ./dist/sql-interpreter.exe
+
+    - name: Upload linux executable
+      uses: 'actions/upload-artifact@v3'
+      with:
+        name: sql-interpreter
+        path: ./dist/sql-interpreter
