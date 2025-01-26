@@ -34,7 +34,7 @@ jobs:
         path: ./dist/sql-interpreter.exe
 
     - name: Upload linux executable
-      uses: 'actions/upload-artifact@v3'
+      uses: 'actions/upload-artifact@v4'
       with:
         name: sql-interpreter
         path: ./dist/sql-interpreter
